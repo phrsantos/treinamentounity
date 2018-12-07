@@ -9,7 +9,7 @@ public class CameraController : NetworkBehaviour {
 		Camera sceneCamera = Camera.main;
 		if (isLocalPlayer) {
 			sceneCamera.transform.parent = gameObject.transform;
-			sceneCamera.transform.localPosition = new Vector3(-0.88f, 1.56f, -8.17f);
+			sceneCamera.transform.localPosition = new Vector3(-0.88f, 4f, -10.17f);
 		}
 	}
 }

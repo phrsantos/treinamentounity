@@ -6,7 +6,7 @@ public class PlayerController : NetworkBehaviour {
 
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
-
+    private Animator animator;
     private Rigidbody rb;
     private float velocity = 1;
     private float speedModifier = 1;
@@ -15,7 +15,11 @@ public class PlayerController : NetworkBehaviour {
     private float dashTime = 0;
     private bool isGrounded = false;
 
+    public float horizontalMovement = 0;
+    public float verticalMovement = 0;
+
     void Start(){
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
     }
 
@@ -44,14 +48,26 @@ public class PlayerController : NetworkBehaviour {
             return;
         }
 
+        horizontalMovement = Input.GetAxis("Horizontal");
+        verticalMovement = Input.GetAxis("Vertical");
+
+        var x = horizontalMovement * Time.deltaTime * 150.0f;
+        var y = verticalMovement * Time.deltaTime * 3.0f;
+
         if (Input.GetKey(KeyCode.LeftShift)) {
             velocity = 3;
         }else {
             velocity = 1;
         }
 
-        var x = Input.GetAxis("Horizontal") * Time.deltaTime * 150.0f;
-        var y = Input.GetAxis("Vertical") * Time.deltaTime * 3.0f;
+        if (y>0)
+        {
+            animator.SetFloat("Velocity", y * velocity);
+            Debug.Log(y*velocity);
+        }else{
+            animator.SetFloat("Velocity", 0);
+        }
+
 
         transform.Rotate(0, x, 0);
         transform.Translate(0, 0, y * velocity);
@@ -73,9 +89,7 @@ public class PlayerController : NetworkBehaviour {
         if (Input.GetKey (KeyCode.LeftAlt) && dashTime == 0 && dashCooldown == dashCooldownTotalTime) {
             dashCooldown = 0.0f;
             dashTime = 1;
-            GameObject UICanvas = GameObject.Find("UICanvas");
-            UpdateUIInfo uiInfo = UICanvas.GetComponent<UpdateUIInfo>();
-            uiInfo.StartDashTimer(dashCooldownTotalTime);
+            // uiInfo.StartDashTimer(dashCooldownTotalTime);
         }
 
         if(dashCooldown >= dashCooldownTotalTime)
