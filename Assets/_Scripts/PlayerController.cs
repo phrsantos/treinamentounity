@@ -19,6 +19,9 @@ public class PlayerController : NetworkBehaviour {
     public float verticalMovement = 0;
 
     void Start(){
+        AnimationEvent ae = new AnimationEvent();
+        ae.messageOptions = SendMessageOptions.DontRequireReceiver;
+
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
     }
@@ -60,13 +63,8 @@ public class PlayerController : NetworkBehaviour {
             velocity = 1;
         }
 
-        if (y>0)
-        {
-            animator.SetFloat("Velocity", y * velocity);
-            Debug.Log(y*velocity);
-        }else{
-            animator.SetFloat("Velocity", 0);
-        }
+        animator.SetFloat("Velocity", y * velocity);
+        Debug.Log(y*velocity);
 
 
         transform.Rotate(0, x, 0);
@@ -74,7 +72,8 @@ public class PlayerController : NetworkBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-        CmdFire();
+            animator.SetTrigger("ShootSmall");
+            CmdFire();
         }
 
 
@@ -89,10 +88,11 @@ public class PlayerController : NetworkBehaviour {
         if (Input.GetKey (KeyCode.LeftAlt) && dashTime == 0 && dashCooldown == dashCooldownTotalTime) {
             dashCooldown = 0.0f;
             dashTime = 1;
+            animator.SetTrigger("RunJump");
             // uiInfo.StartDashTimer(dashCooldownTotalTime);
         }
 
-        if(dashCooldown >= dashCooldownTotalTime)
+        if (dashCooldown >= dashCooldownTotalTime)
         {
             //reactivate dash
             dashCooldown = dashCooldownTotalTime;
