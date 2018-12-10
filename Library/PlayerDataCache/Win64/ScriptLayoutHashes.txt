@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/Pedro/Documents/UnityProjects/treinamentounity/Builds/TreinamentoUnityAula2.exe
+C:/Users/Pedro/Documents/UnityProjects/treinamentounity/NewBuild/TreinamentoUnityAula2.exe
 SceneListBegin?
 Assets/Scenes/Main.unity
 SceneListEnd?
