@@ -1,0 +1,12 @@
+- Debug Animator.
+- Debug NetworkAnimator.
+- Make own Network Manager Hud.
+- Player movements.
+
+
+
+
+DOC:
+Making own hud>
+http://wontonst.blogspot.com/2015/07/making-custom-networkmanagerhud-in.html
+https://forum.unity.com/threads/networkmanagerhud-source.333482/ --> comment from JWLewis
