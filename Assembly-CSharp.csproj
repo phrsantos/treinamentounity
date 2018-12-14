@@ -115,7 +115,10 @@
      <Compile Include="Assets\Mech\Scripts\MechShoot.cs" />
      <Compile Include="Assets\Mech\Scripts\MechWalk.cs" />
      <Compile Include="Assets\Mech\Scripts\Shoot.cs" />
+     <Compile Include="Assets\NetworkManagerScript.cs" />
      <Compile Include="Assets\OnlineCanvasUpdate.cs" />
+     <Compile Include="Assets\PlayerNameScript.cs" />
+     <Compile Include="Assets\Singleton.cs" />
      <None Include="Assets\Mech\PostProcessing\Resources\Shaders\DepthOfField.shader" />
      <None Include="Assets\Mech\PostProcessing\Resources\Shaders\MotionBlur.cginc" />
      <None Include="Assets\Mech\PostProcessing\Resources\Shaders\Fog.shader" />
@@ -132,6 +135,7 @@
      <None Include="Assets\Mech\PostProcessing\Editor Resources\Monitors\HistogramCompute.compute" />
      <None Include="Assets\Mech\PostProcessing\Resources\Shaders\Uber.shader" />
      <None Include="Assets\Mech\PostProcessing\Resources\Shaders\Blit.shader" />
+     <None Include="Assets\Game\Artwork\RippleWave\WaterRipple.shader" />
      <None Include="Assets\Mech\PostProcessing\Editor Resources\Monitors\WaveformRender.shader" />
      <None Include="Assets\Mech\PostProcessing\Editor Resources\Monitors\VectorscopeCompute.compute" />
      <None Include="Assets\Mech\PostProcessing\Resources\Shaders\FXAA3.cginc" />

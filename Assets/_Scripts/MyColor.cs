@@ -31,6 +31,6 @@ public class MyColor : NetworkBehaviour {
 
         if (Input.GetKeyDown(KeyCode.LeftControl)) {
            CmdChangeColor(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
-       }
+        }
     }
 }

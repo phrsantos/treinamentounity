@@ -40,13 +40,9 @@ public class PlayerController : NetworkBehaviour {
         );
 
        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 20;
-
         NetworkServer.Spawn(bullet);
 
        Destroy(bullet, 2.0f);
-   }
-
-   public override void OnStartLocalPlayer() {
    }
 
    // Update is called once per frame

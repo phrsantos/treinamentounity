@@ -1,12 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Networking;
 
 public class ChangeScene : NetworkBehaviour {
     public GameObject offineCanvas;
     public GameObject onlineCanvas;
 
+    private string submittedName;
+
+    public InputField playerName;
+
+    void Awake(){
+        var input = playerName.GetComponent<InputField>();
+        input.onEndEdit.AddListener(SubmitName);
+    }
+
+    void SubmitName(string name){
+        Singleton.name = name;
+    }
 
     public void StartHost() {
         offineCanvas.SetActive(false);
@@ -41,5 +54,6 @@ public class ChangeScene : NetworkBehaviour {
             NetworkManager.singleton.StopClient();
         }
     }
+
 
 }
