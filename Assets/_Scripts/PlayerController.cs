@@ -64,8 +64,6 @@ public class PlayerController : NetworkBehaviour {
         }
 
         animator.SetFloat("Velocity", y * velocity);
-        Debug.Log(y*velocity);
-
 
         transform.Rotate(0, x, 0);
         transform.Translate(0, 0, y * velocity);
