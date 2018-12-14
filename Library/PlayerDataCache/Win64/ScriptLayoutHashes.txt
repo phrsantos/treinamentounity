@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/Pedro/Documents/UnityProjects/treinamentounity/Builds/TreinamentoUnityAula2.exe
+C:/Users/Tapps/Documents/Projetos/Unity/ProjetoTreinamento/Builds/TreinamentoUnityAula2.exe
 SceneListBegin?
 Assets/Scenes/Main.unity
 Assets/Scenes/OfflineScene.unity
@@ -181,6 +181,7 @@ e04611b8715e6833d2bd7010fc6be10b Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 9fcb2fae12c9a885e572f33731d12a60 Assembly-CSharp.dll:.SpeachBalloon
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.CameraFollow
 93307bd34e39d73fd24e00ec39c25a91 Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
+ffe32c2e6f9c4831434f29b1e8eab08a Assembly-CSharp.dll:.ChangeScene
 9810a9a659260a1f0af8f467f8238a7a Assembly-CSharp.dll:.UpdateUIInfo
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.CameraController
-ffe32c2e6f9c4831434f29b1e8eab08a Assembly-CSharp.dll:.ChangeScene
+eb15843657cec1fe2011a9e205c534ff Assembly-CSharp.dll:.OnlineCanvasUpdate

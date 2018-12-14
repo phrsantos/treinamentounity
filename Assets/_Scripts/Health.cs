@@ -11,21 +11,19 @@ public class Health : NetworkBehaviour {
     public GameObject SpawnPositions;
     public bool destroyOnDeath;
 
+    private OnlineCanvasUpdate onlineCanvas;
+
     [SyncVar (hook = "OnChangeHealth")]
     public int currentHealth = maxHealth;
 
     void Start() {
+        onlineCanvas = GameObject.Find("OnlineCanvas").GetComponent<OnlineCanvasUpdate>();
         GameObject spawnPositions = GameObject.FindGameObjectWithTag("PlayerSpawnPosition");
         SpawnPositions = spawnPositions;
     }
 
     void UpdateBar(int health){
         healthBar.sizeDelta = new Vector2(health, healthBar.sizeDelta.y);
-    }
-
-    void Update(){
-
-
     }
 
     public void TakeDamage(int amount) {
@@ -37,17 +35,25 @@ public class Health : NetworkBehaviour {
         UpdateBar(currentHealth);
 
         if (currentHealth <= 0) {
-            currentHealth = maxHealth;
             RpcRespawn();
         }
+
     }
 
     public void OnChangeHealth(int health) {
         UpdateBar(health);
+
+        if (isLocalPlayer){
+            onlineCanvas.UpdateHealthText(health);
+        }
     }
 
     [ClientRpc]
     public void RpcRespawn() {
+        if (isServer){
+            currentHealth = maxHealth;
+        }
+
         if (destroyOnDeath) {
             Destroy(gameObject);
         } else {

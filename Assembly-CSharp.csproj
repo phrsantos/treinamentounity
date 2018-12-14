@@ -115,6 +115,7 @@
      <Compile Include="Assets\Mech\Scripts\MechShoot.cs" />
      <Compile Include="Assets\Mech\Scripts\MechWalk.cs" />
      <Compile Include="Assets\Mech\Scripts\Shoot.cs" />
+     <Compile Include="Assets\OnlineCanvasUpdate.cs" />
      <None Include="Assets\Mech\PostProcessing\Resources\Shaders\DepthOfField.shader" />
      <None Include="Assets\Mech\PostProcessing\Resources\Shaders\MotionBlur.cginc" />
      <None Include="Assets\Mech\PostProcessing\Resources\Shaders\Fog.shader" />

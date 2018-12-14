@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 163147493}
   - component: {fileID: 163147492}
   m_Layer: 5
-  m_Name: DashTextVar
+  m_Name: DashText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -954,7 +954,7 @@ GameObject:
   - component: {fileID: 499562512}
   - component: {fileID: 499562511}
   m_Layer: 5
-  m_Name: DashText
+  m_Name: DashTextVar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1029,7 +1029,7 @@ GameObject:
   - component: {fileID: 503933188}
   - component: {fileID: 503933187}
   m_Layer: 5
-  m_Name: HealthText
+  m_Name: HealthTextVar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1638,7 +1638,7 @@ GameObject:
   - component: {fileID: 916958240}
   - component: {fileID: 916958239}
   m_Layer: 5
-  m_Name: HealthTextVar
+  m_Name: HealthText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1980,6 +1980,7 @@ GameObject:
   - component: {fileID: 1266567370}
   - component: {fileID: 1266567369}
   - component: {fileID: 1266567368}
+  - component: {fileID: 1266567372}
   m_Layer: 5
   m_Name: OnlineCanvas
   m_TagString: Untagged
@@ -2068,6 +2069,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1266567372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1266567367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fa047aab7b0ba847820268eb23d39af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthText: {fileID: 503933187}
+  dashText: {fileID: 499562511}
 --- !u!1 &1279924366
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,7 +18,12 @@ public class PlayerController : NetworkBehaviour {
     public float horizontalMovement = 0;
     public float verticalMovement = 0;
 
+    private OnlineCanvasUpdate onlineCanvas;
+
+
     void Start(){
+        onlineCanvas = GameObject.Find("OnlineCanvas").GetComponent<OnlineCanvasUpdate>();
+
         AnimationEvent ae = new AnimationEvent();
         ae.messageOptions = SendMessageOptions.DontRequireReceiver;
 
@@ -87,7 +92,7 @@ public class PlayerController : NetworkBehaviour {
             dashCooldown = 0.0f;
             dashTime = 1;
             animator.SetTrigger("RunJump");
-            // uiInfo.StartDashTimer(dashCooldownTotalTime);
+            onlineCanvas.StartDashTimer(dashCooldownTotalTime);
         }
 
         if (dashCooldown >= dashCooldownTotalTime)
