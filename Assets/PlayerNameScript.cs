@@ -6,27 +6,39 @@ using UnityEngine.Networking;
 
 public class PlayerNameScript : NetworkBehaviour {
 
-    [SyncVar (hook = "UpdateName")]
+	[SyncVar]
 	public string playerNameString;
 
 	public Text playerNameText;
 
-    public override void OnStartClient()
-    {
-		playerNameString = "Player " + Random.Range(1, 10);
+	public override void OnStartClient(){
 		UpdateName(playerNameString);
-        CmdChangeName(playerNameString);
+		CmdChangeName(playerNameString);
+	}
+
+	public override void OnStartLocalPlayer(){
+		playerNameString = "Player " + Random.Range(1, 10);
+		CmdChangeName(playerNameString);
 	}
 
 	void UpdateName(string newName){
+		Debug.Log("UpdateName:" + newName);
+
 		playerNameText.text = newName;
 	}
 
 
 	[Command]
     void CmdChangeName(string newName) {
-            playerNameString = newName;
+			Debug.Log("CmdChangeName:" + playerNameString);
+			RpcUpdateName(newName);
     }
+
+	[ClientRpc]
+	void RpcUpdateName(string rpcName)
+	{
+		UpdateName(rpcName);
+	}
 
 	    // Update is called once per frame
     void Update () {
