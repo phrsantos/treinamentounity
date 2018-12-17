@@ -50,6 +50,7 @@ public class Health : NetworkBehaviour {
 
     [ClientRpc]
     public void RpcRespawn() {
+        Debug.Log("SPAWN!");
         if (isServer){
             currentHealth = maxHealth;
         }

@@ -29,7 +29,7 @@ public class PlayerNameScript : NetworkBehaviour {
 
 	[Command]
     void CmdChangeName(string newName) {
-			RpcUpdateName(newName);
+		RpcUpdateName(newName);
     }
 
 	[ClientRpc]

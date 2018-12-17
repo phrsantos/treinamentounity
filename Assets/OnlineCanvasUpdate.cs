@@ -7,11 +7,17 @@ public class OnlineCanvasUpdate : MonoBehaviour {
 
 	public Text healthText;
 	public Text dashText;
+	public Text scoreText;
 
 	private float dashTimer;
 
 	public void UpdateHealthText(int newHealth){
 		healthText.text = newHealth.ToString();
+	}
+
+	public void UpdateScoreText(int newScore){
+		Debug.Log("UpdateScoreText");
+		scoreText.text = newScore.ToString();
 	}
 
 	public void StartDashTimer(float dashTotalTime){

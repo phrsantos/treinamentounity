@@ -835,6 +835,7 @@ GameObject:
   - component: {fileID: 114073701604584254}
   - component: {fileID: 114938198882035390}
   - component: {fileID: 114933197627945920}
+  - component: {fileID: 114131723217756574}
   m_Layer: 0
   m_Name: Mech
   m_TagString: Untagged
@@ -1752,6 +1753,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df8a76ff1135a224dbefcfee41176236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114131723217756574
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1866046226478204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a88917066de2cbf4ea5adff9172a6fc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114199186537526934
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1781,6 +1793,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1765712952805166, guid: 241d5359418924aa0b91bdff6d2cf4cc,
     type: 2}
   bulletSpawn: {fileID: 4548022685979084}
+  playerName: 
   horizontalMovement: 0
   verticalMovement: 0
 --- !u!114 &114556880786453922

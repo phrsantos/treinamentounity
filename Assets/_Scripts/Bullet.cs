@@ -5,15 +5,16 @@ using UnityEngine;
 public class Bullet : MonoBehaviour {
     public string shooterName;
 
+	private int damage = 10;
+
 	void OnCollisionEnter(Collision collision){
 		var hit = collision.gameObject;
 		var health = hit.GetComponent<Health>();
-
-        Debug.Log(shooterName);
+		var score = hit.GetComponent<Score>();
 
 		if (health != null){
-			health.TakeDamage(10);
-
+			health.TakeDamage(damage);
+			score.AddScoreToShooter(damage, shooterName);
 			Destroy(gameObject);
 		}
 	}

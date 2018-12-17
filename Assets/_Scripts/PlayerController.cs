@@ -6,7 +6,7 @@ public class PlayerController : NetworkBehaviour {
 
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
-    public string playerName; 
+    public string playerName;
     private Animator animator;
     private Rigidbody rb;
     private float velocity = 1;
@@ -33,15 +33,13 @@ public class PlayerController : NetworkBehaviour {
     }
 
     [Command]
-    void CmdFire() {
+    void CmdFire(string playerName) {
        var bullet = (GameObject)Instantiate(
            bulletPrefab,
            bulletSpawn.position,
            bulletSpawn.rotation
         );
 
-        playerName = gameObject.GetComponent<PlayerNameScript>().GetPlayerName();
-        Debug.Log("FIre name:" + playerName);
         bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 20;
         bullet.GetComponent<Bullet>().SetShooter(playerName);
         NetworkServer.Spawn(bullet);
@@ -76,7 +74,8 @@ public class PlayerController : NetworkBehaviour {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             animator.SetTrigger("ShootSmall");
-            CmdFire();
+            playerName = gameObject.GetComponent<PlayerNameScript>().GetPlayerName();
+            CmdFire(playerName);
         }
 
 
