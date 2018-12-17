@@ -16,21 +16,19 @@ public class PlayerNameScript : NetworkBehaviour {
 		CmdChangeName(playerNameString);
 	}
 
+
 	public override void OnStartLocalPlayer(){
-		playerNameString = "Player " + Random.Range(1, 10);
+		playerNameString = "Player " + (gameObject.GetInstanceID() * -1);
 		CmdChangeName(playerNameString);
 	}
 
 	void UpdateName(string newName){
-		Debug.Log("UpdateName:" + newName);
-
 		playerNameText.text = newName;
 	}
 
 
 	[Command]
     void CmdChangeName(string newName) {
-			Debug.Log("CmdChangeName:" + playerNameString);
 			RpcUpdateName(newName);
     }
 
@@ -40,14 +38,20 @@ public class PlayerNameScript : NetworkBehaviour {
 		UpdateName(rpcName);
 	}
 
-	    // Update is called once per frame
+    public string GetPlayerName()
+    {
+        return playerNameString;
+    }
+
+        // Update is called once per frame
     void Update () {
         if (!isLocalPlayer) {
             return;
         }
 
         if (Input.GetKeyDown(KeyCode.LeftControl)) {
-           CmdChangeName("Mudei o nome");
+            playerNameString = PlayerPrefs.GetString("Nickname");
+            CmdChangeName(playerNameString);
         }
     }
 

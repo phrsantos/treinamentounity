@@ -18,8 +18,7 @@ public class ChangeScene : NetworkBehaviour {
     }
 
     void SubmitName(string name){
-        Debug.Log("ChangeScene"+name);
-        Singleton.name = name;
+        PlayerPrefs.SetString("Nickname", name);
     }
 
     public void StartHost() {

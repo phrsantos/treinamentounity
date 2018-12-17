@@ -6,6 +6,7 @@ public class PlayerController : NetworkBehaviour {
 
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
+    public string playerName; 
     private Animator animator;
     private Rigidbody rb;
     private float velocity = 1;
@@ -39,7 +40,10 @@ public class PlayerController : NetworkBehaviour {
            bulletSpawn.rotation
         );
 
-       bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 20;
+        playerName = gameObject.GetComponent<PlayerNameScript>().GetPlayerName();
+        Debug.Log("FIre name:" + playerName);
+        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 20;
+        bullet.GetComponent<Bullet>().SetShooter(playerName);
         NetworkServer.Spawn(bullet);
 
        Destroy(bullet, 2.0f);
