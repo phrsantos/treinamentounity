@@ -12,12 +12,14 @@ public class Health : NetworkBehaviour {
     public bool destroyOnDeath;
 
     private OnlineCanvasUpdate onlineCanvas;
+    private Score score;
 
     [SyncVar (hook = "OnChangeHealth")]
     public int currentHealth = maxHealth;
 
     void Start() {
         onlineCanvas = GameObject.Find("OnlineCanvas").GetComponent<OnlineCanvasUpdate>();
+        score = gameObject.GetComponent<Score>();
         GameObject spawnPositions = GameObject.FindGameObjectWithTag("PlayerSpawnPosition");
         SpawnPositions = spawnPositions;
     }
@@ -59,6 +61,7 @@ public class Health : NetworkBehaviour {
             Destroy(gameObject);
         } else {
             if (isLocalPlayer) {
+                score.ResetAndSaveScore();
                 int amountChildren = SpawnPositions.transform.childCount;
                 Transform spawnPositionsTransform = SpawnPositions.transform.GetChild(Random.Range(0, amountChildren));
                 transform.position = spawnPositionsTransform.position;

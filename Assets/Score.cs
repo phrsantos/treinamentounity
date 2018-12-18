@@ -32,7 +32,11 @@ public class Score : NetworkBehaviour {
 
     public void AddScoreToShooter(int score){
         totalScore += score;
-
 	}
+
+    public void ResetAndSaveScore(){
+        Debug.Log("Score:" + totalScore);
+        totalScore = 0;
+    }
 
 }
