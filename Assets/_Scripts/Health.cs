@@ -55,7 +55,6 @@ public class Health : NetworkBehaviour {
 
     [ClientRpc]
     public void RpcRespawn() {
-        Debug.Log("SPAWN!");
         if (isServer){
             currentHealth = maxHealth;
             score.ZeroScore();
@@ -66,7 +65,6 @@ public class Health : NetworkBehaviour {
         } else {
             if (isLocalPlayer) {
                 // score.ResetAndSaveScore();
-                Debug.Log("RpcRespawn");
                 int amountChildren = SpawnPositions.transform.childCount;
                 Transform spawnPositionsTransform = SpawnPositions.transform.GetChild(Random.Range(0, amountChildren));
                 transform.position = spawnPositionsTransform.position;

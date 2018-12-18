@@ -179,6 +179,7 @@ aac9c55ae7ba4b95b852a7d9c191acd1 Unity.TextMeshPro.dll:TMPro.TextMeshProUGUI
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.MechWalk
 e81136d1f23b35395b34f424bd86b4db Assembly-CSharp.dll:.MyColor
 e04611b8715e6833d2bd7010fc6be10b Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
+acaca223e04625ee27491aa1bb377074 Assembly-CSharp.dll:.OfflineCanvas
 2f9af06a78208a67db480e9bfed4a076 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 9318334b30e9f195f573b2ce00154b95 Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
 9fcb2fae12c9a885e572f33731d12a60 Assembly-CSharp.dll:.SpeachBalloon

@@ -32,17 +32,24 @@ public class Score : NetworkBehaviour {
 
     public void AddScoreToShooter(int score){
         totalScore += score;
+        CheckIfLocalHighscoreAndSave();
 	}
 
     public void ZeroScore(){
-        Debug.Log("Zeroed");
+        CheckIfLocalHighscoreAndSave();
         totalScore = 0;
-        Debug.Log("Score:" + totalScore);
+    }
+
+    void CheckIfLocalHighscoreAndSave(){
+        var lastHighscore = PlayerPrefs.GetInt("LocalHighscore", 0);
+
+        if (totalScore > lastHighscore) {
+            PlayerPrefs.SetInt("LocalHighscore", totalScore);
+        }
     }
 
     public void ResetAndSaveScore(){
         if (isLocalPlayer) {
-            Debug.Log("Score:" + totalScore);
             totalScore = 0;
         }
     }
