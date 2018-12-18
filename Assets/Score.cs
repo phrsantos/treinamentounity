@@ -34,9 +34,17 @@ public class Score : NetworkBehaviour {
         totalScore += score;
 	}
 
-    public void ResetAndSaveScore(){
-        Debug.Log("Score:" + totalScore);
+    public void ZeroScore(){
+        Debug.Log("Zeroed");
         totalScore = 0;
+        Debug.Log("Score:" + totalScore);
+    }
+
+    public void ResetAndSaveScore(){
+        if (isLocalPlayer) {
+            Debug.Log("Score:" + totalScore);
+            totalScore = 0;
+        }
     }
 
 }

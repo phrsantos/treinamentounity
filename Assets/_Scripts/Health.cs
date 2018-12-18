@@ -19,9 +19,12 @@ public class Health : NetworkBehaviour {
 
     void Start() {
         onlineCanvas = GameObject.Find("OnlineCanvas").GetComponent<OnlineCanvasUpdate>();
-        score = gameObject.GetComponent<Score>();
         GameObject spawnPositions = GameObject.FindGameObjectWithTag("PlayerSpawnPosition");
         SpawnPositions = spawnPositions;
+    }
+
+    public override void OnStartClient(){
+        score = gameObject.GetComponent<Score>();
     }
 
     void UpdateBar(int health){
@@ -55,13 +58,15 @@ public class Health : NetworkBehaviour {
         Debug.Log("SPAWN!");
         if (isServer){
             currentHealth = maxHealth;
+            score.ZeroScore();
         }
 
         if (destroyOnDeath) {
             Destroy(gameObject);
         } else {
             if (isLocalPlayer) {
-                score.ResetAndSaveScore();
+                // score.ResetAndSaveScore();
+                Debug.Log("RpcRespawn");
                 int amountChildren = SpawnPositions.transform.childCount;
                 Transform spawnPositionsTransform = SpawnPositions.transform.GetChild(Random.Range(0, amountChildren));
                 transform.position = spawnPositionsTransform.position;
