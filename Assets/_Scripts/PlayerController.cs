@@ -41,7 +41,10 @@ public class PlayerController : NetworkBehaviour {
         );
 
         bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 20;
-        bullet.GetComponent<Bullet>().SetShooter(playerName);
+
+        var shooter = gameObject.GetComponent<Score>();
+        bullet.GetComponent<Bullet>().SetShooter(shooter);
+
         NetworkServer.Spawn(bullet);
 
        Destroy(bullet, 2.0f);

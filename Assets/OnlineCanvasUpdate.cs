@@ -16,7 +16,6 @@ public class OnlineCanvasUpdate : MonoBehaviour {
 	}
 
 	public void UpdateScoreText(int newScore){
-		Debug.Log("UpdateScoreText");
 		scoreText.text = newScore.ToString();
 	}
 

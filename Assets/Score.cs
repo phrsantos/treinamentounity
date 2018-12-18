@@ -6,40 +6,33 @@ using UnityEngine.Networking;
 
 public class Score : NetworkBehaviour {
 
-	private int totalScore = 0;
-	private string playerName;
+    [SyncVar(hook = "OnChangeScore")]
+    private int totalScore = 0;
     private OnlineCanvasUpdate onlineCanvas;
 
 	void Start() {
-		Debug.Log("StartClient");
         onlineCanvas = GameObject.Find("OnlineCanvas").GetComponent<OnlineCanvasUpdate>();
 		onlineCanvas.UpdateScoreText(totalScore);
+
     }
 
-	public void AddScoreToShooter(int score, string shooterName){
-		CmdSendHit(score, shooterName);
-	}
-
-	[Command]
-	void CmdSendHit(int score, string shooterName){
-		RpcAddScoreToShooter(score, shooterName);
-	}
-
-	[ClientRpc]
-	void RpcAddScoreToShooter(int score, string shooterName){
-        playerName = gameObject.GetComponent<PlayerNameScript>().GetPlayerName();
-		Debug.Log("ClientRpc");
-		Debug.Log("shooterName " + shooterName);
-		Debug.Log("playerName " + playerName);
-
-
-
-        if (isLocalPlayer){
-			Debug.Log("Entrou");
-			totalScore += score;
-            onlineCanvas.UpdateScoreText(totalScore);
+    void OnChangeScore(int score)
+    {
+        if (isLocalPlayer)
+        {
+            onlineCanvas.UpdateScoreText(score);
         }
-
     }
+
+    public override void OnStartLocalPlayer()
+    {
+        onlineCanvas = GameObject.Find("OnlineCanvas").GetComponent<OnlineCanvasUpdate>();
+        onlineCanvas.UpdateScoreText(totalScore);
+    }
+
+    public void AddScoreToShooter(int score){
+        totalScore += score;
+
+	}
 
 }

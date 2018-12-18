@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/Tapps/Documents/Projetos/Unity/ProjetoTreinamento/NewBuild/TreinamentoUnityAula2.exe
+C:/Users/Pedro/Documents/UnityProjects/treinamentounity/Builds/TreinamentoUnityAula2.exe
 SceneListBegin?
 Assets/Scenes/Main.unity
 SceneListEnd?
@@ -128,7 +128,7 @@ e1ea12ca952c81d81a9a21fdf34446ed UnityEngine.HoloLens.dll:UnityEngine.EventSyste
 dfd33ff9ae3ce8d7ca1f22b475ec2387 UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 a90dda6acce8140cb983bc931fa04eb9 Assembly-CSharp.dll:.MechHit
 96f3ea9f23b6f08e60710ebb4af49174 Unity.TextMeshPro.dll:TMPro.TMP_SpriteAsset
-df4bf8b02ad817d6f7cca6c70cbbecaf Assembly-CSharp.dll:.Bullet
+ecf9e2db3fc1af1e49f8ae4a43772829 Assembly-CSharp.dll:.Bullet
 f16835701e71dd5d6fb1fed4b7aff1d8 Unity.TextMeshPro.dll:TMPro.TMP_Asset
 e2bc6ef764fff21ff1e9db5ef924d331 Assembly-CSharp.dll:.ExampleWheelController
 486cd95c82d8305219c352c06b776e1f Unity.TextMeshPro.dll:TMPro.TMP_SpriteAnimator

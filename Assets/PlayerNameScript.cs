@@ -12,7 +12,8 @@ public class PlayerNameScript : NetworkBehaviour {
 	public Text playerNameText;
 
 	public override void OnStartClient(){
-		UpdateName(playerNameString);
+        playerNameString = "Player " + (gameObject.GetInstanceID() * -1);
+        UpdateName(playerNameString);
 		CmdChangeName(playerNameString);
 	}
 
