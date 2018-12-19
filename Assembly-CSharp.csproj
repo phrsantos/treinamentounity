@@ -121,8 +121,6 @@
      <Compile Include="Assets\PlayerNameScript.cs" />
      <Compile Include="Assets\Score.cs" />
      <Compile Include="Assets\Singleton.cs" />
-     <Compile Include="Assets\Winter Zone Mini 1.0\Scripts\EmitterPositionController.cs" />
-     <Compile Include="Assets\Winter Zone Mini 1.0\Scripts\FXDemoController.cs" />
      <None Include="Assets\Mech\PostProcessing\Resources\Shaders\DepthOfField.shader" />
      <None Include="Assets\Mech\PostProcessing\Resources\Shaders\MotionBlur.cginc" />
      <None Include="Assets\Mech\PostProcessing\Resources\Shaders\Fog.shader" />

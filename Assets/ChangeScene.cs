@@ -8,19 +8,6 @@ public class ChangeScene : NetworkBehaviour {
     public GameObject offineCanvas;
     public GameObject onlineCanvas;
 
-    private string submittedName;
-
-    public InputField playerName;
-
-    void Awake(){
-        var input = playerName.GetComponent<InputField>();
-        input.onEndEdit.AddListener(SubmitName);
-    }
-
-    void SubmitName(string name){
-        PlayerPrefs.SetString("Nickname", name);
-    }
-
     public void StartHost() {
         offineCanvas.SetActive(false);
         onlineCanvas.SetActive(true);
